@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpaceX Landing Page</title>
+
+    <meta property="og:title" content="Al Azad Heera">
+    <meta property="og:description" content="Fullstack Developer. Specilized In PHP.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://github.com/muhammadalazadheera">
+    <meta property="og:image"
+        content="https://res.cloudinary.com/dqv4l1mkj/image/upload/v1724851027/Documentation/dkh2top7hgotjggindqj.png" />
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <section id="toast-container">
+        <div class="toast">
+            <p>Successfully Submitted!</p>
+        </div>
+    </section>
+
+    <video autoplay muted loop>
+        <source src="assets/video/moon.mp4" type="video/mp4">
+    </video>
+    <div id="particles-js"></div>
+
+    <div id="hero">
+        <div class="content-box">
+            <div id="content-box-overlay">
+                <div id="wait">
+                    <h3>Please Wait</h3>
+                </div>
+            </div>
+            <div class="logo">
+                <img src="assets/images/SpaceX-Logo.png" alt="">
+            </div>
+            <div class="lead-form">
+                <form name="submit-to-google-sheet">
+                    <label for="name">Enter Your Name</label>
+                    <input id="name" type="text" name="Name" placeholder="John Doe" class="ph-font" required>
+                    <label for="email">Enter Your Email</label>
+                    <input id="email" type="email" name="Email" placeholder="email@example.com" class="ph-font"
+                        required>
+                    <input type="hidden" name="Date" id="date">
+                    <input type="submit" name="Name" value="Submit">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="assets/js/particle.js"></script>
+    <script src="assets/js/toast.js"></script>
+
+    <script>
+        let DateInput = document.getElementById('date');
+        // Create a new Date object
+        const date = new Date();
+
+        // Get the day, month, and year
+        const day = date.getDate();
+        const month = date.toLocaleString('default', { month: 'long' }); // Full month name
+        const year = date.getFullYear();
+
+        // Format the date as "day month year"
+        const formattedDate = `${day} ${month} ${year}`;
+
+        DateInput.value = formattedDate;
+
+    </script>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzvYHAH9Kd9Kchhgu_zaIQriIfQ3E402QW8haoSrvh03ILV9S9rSe_vv8_so1KQhRIY/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const toast = document.getElementById('toast-container');
+        const wait = document.getElementById('content-box-overlay');
+
+        //toast.style.display = 'none';
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            wait.style.visibility = 'visible';
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    form.reset();
+                    wait.style.visibility = 'hidden';
+                    toast.style.display = 'block';
+                    showToast();
+                })
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+</body>
+
+</html

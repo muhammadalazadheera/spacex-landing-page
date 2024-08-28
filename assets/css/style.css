@@ -1,0 +1,264 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
+@font-face {
+    font-family: spacex;
+    src: url(../fonts/spacex/SpaceX.ttf);
+}
+
+body {
+    background-color: #000000;
+}
+
+label {
+    color: #ffffff;
+    font-size: 12px;
+    font-family: spacex;
+}
+
+input:focus-visible {
+    outline: 1px solid rgba(37, 124, 255, 0.377);
+}
+
+.ph-font::placeholder {
+    color: #777575;
+    font-family: "Merriweather", serif;
+    font-weight: 300;
+    font-size: 16px;
+    letter-spacing: 3px;
+}
+
+input {
+    display: block;
+    color: #ffffff;
+    font-family: "Merriweather", serif;
+    font-weight: 300;
+    font-size: 16px;
+    letter-spacing: 3px;
+}
+
+input[type="text"],
+input[type="email"] {
+    height: 40px;
+    width: 100%;
+    background-color: rgba(48, 48, 48, 0.555);
+    border: 1px solid rgba(30, 30, 139, .3);
+    padding: 0 7px;
+    margin-top: 7px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    background-color: rgba(48, 48, 48, 0.8);
+    border: 1px solid rgba(30, 30, 139, .3) !important;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 7px 0;
+    border: none;
+    font-family: spacex;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+video {
+    width: 60vw;
+    height: 60vh;
+    object-fit: cover;
+
+    position: fixed;
+    right: 0;
+    top: 140px;
+}
+
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+#hero {
+    position: relative;
+    height: 100vh;
+    padding: 20px 0;
+}
+
+#content-box-overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.815);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(4px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    visibility: hidden;
+}
+
+.content-box {
+    width: 36%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    margin-left: 25px;
+}
+
+.lead-form {
+    width: 80%;
+}
+
+.log {
+    width: 100%;
+}
+
+.logo img {
+    display: block;
+    width: 65%;
+    margin: 0 auto;
+    margin-bottom: 45px;
+}
+
+#toast-container {
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    visibility: hidden;
+    z-index: 999;
+}
+
+.toast {
+    padding: 0.5rem 0.8rem;
+    margin: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 3px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    background-color: #363536;
+    color: #b3abb5;
+}
+
+.toast p {
+    padding: 10px 30px;
+    font-size: 14px;
+    font-family: spacex;
+}
+
+@keyframes slidein {
+    0% {
+        right: -440px;
+        visibility: visible;
+    }
+
+    100% {
+        right: 0px;
+        visibility: visible;
+    }
+}
+
+@keyframes slideout {
+    0% {
+        right: 0px;
+    }
+
+    100% {
+        right: -440px;
+    }
+}
+
+.show-toast {
+    animation: slidein 0.5s forwards;
+}
+
+.hide-toast {
+    animation: slideout 0.5s forwards;
+}
+
+#wait h3 {
+    color: #ffffff;
+    font-family: spacex;
+    font-size: 20px;
+}
+
+@media screen and (max-width: 768px) {
+
+    #hero {
+        padding: 30px;
+    }
+
+    video {
+        width: 80vw;
+    }
+
+    .content-box {
+        width: 60%;
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .lead-form {
+        width: 100%;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="submit"] {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    video {
+        width: 100vw;
+    }
+
+    #hero {
+        padding: 20px;
+    }
+
+    .content-box {
+        width: 100%;
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .lead-form {
+        width: 100%;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="submit"] {
+        width: 100%;
+    }
+
+    input[type="submit"] {
+        font-size: 14px;
+    }
+
+    .toast p {
+        font-size: 8px;
+    }
+}
