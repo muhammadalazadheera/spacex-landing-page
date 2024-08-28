@@ -77,6 +77,18 @@ video {
     top: 140px;
 }
 
+#google-sheet-link{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+}
+
+#google-sheet-link img{
+    width: 90px;
+    padding: 20px;
+}
+
 #particles-js {
     position: fixed;
     width: 100%;
